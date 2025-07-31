@@ -1,6 +1,13 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const HeroSection = () => {
+  const navigate = useNavigate();
+
+  const handleGetStarted = () => {
+    navigate('/chat');
+  };
+
   return (
     <section
       id="home"
@@ -17,7 +24,10 @@ const HeroSection = () => {
         Your intelligent bridge between complex documents and clear decision
       </p>
 
-      <button className="mt-8 px-6 py-3 text-white font-semibold rounded-md bg-gradient-to-r from-blue-500 to-purple-500 shadow-md hover:opacity-90">
+      <button 
+        onClick={handleGetStarted}
+        className="mt-8 px-6 py-3 text-white font-semibold rounded-md bg-gradient-to-r from-blue-500 to-purple-500 shadow-md hover:opacity-90 transition-all duration-200 hover:scale-105"
+      >
         Get Started
       </button>
     </section>

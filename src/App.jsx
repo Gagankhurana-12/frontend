@@ -11,6 +11,7 @@ import FaqSection from './components/FaqSection';
 // Pages
 import Login from './pages/Login';
 import Signup from './pages/Signup';
+import ChatPage from './pages/ChatPage';
 
 const HomePage = () => {
   const location = useLocation();
@@ -55,6 +56,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
+          <Route path="/chat" element={<ChatPage />} />
         </Routes>
       </div>
     </Router>
