@@ -48,18 +48,27 @@ const HomePage = () => {
 };
 
 function App() {
+  // Use useLocation from react-router-dom for correct routing context
   return (
     <Router>
-      <div className="font-sans scroll-smooth bg-gray-50 text-gray-900 min-h-screen">
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
-          <Route path="/chat" element={<ChatPage />} />
-        </Routes>
-      </div>
+      <AppWithLocation />
     </Router>
+  );
+}
+
+function AppWithLocation() {
+  const location = useLocation();
+  const isChatPage = location.pathname === '/chat';
+  return (
+    <div className="font-sans scroll-smooth bg-gray-50 text-gray-900 min-h-screen">
+      {!isChatPage && <Navbar />}
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/chat" element={<ChatPage />} />
+      </Routes>
+    </div>
   );
 }
 
